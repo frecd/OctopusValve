@@ -1,0 +1,1484 @@
+# Macro Begin: /home/bill/.FreeCAD/macros/TurnersCube.FCMacro +++++++++++++++++++++++++++++++++++++++++++++++++
+import FreeCAD
+import Sketcher
+import PartDesign
+
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch')
+App.activeDocument().Sketch.Placement = App.Placement(App.Vector(0.000000,0.000000,0.000000),App.Rotation(0.000000,0.000000,0.000000,1.000000))
+#Gui.activeDocument().activeView().setCamera('#Inventor V2.1 ascii \n OrthographicCamera {\n viewportMapping ADJUST_CAMERA \n position 0 0 87 \n orientation 0 0 1  0 \n nearDistance -112.88701 \n farDistance 287.28702 \n aspectRatio 1 \n focalDistance 87 \n height 143.52005 }')
+#Gui.activeDocument().setEdit('Sketch')
+App.ActiveDocument.Sketch.addGeometry(Part.Line(App.Vector(-50.018871,49.876770,0),App.Vector(50.018871,49.876770,0)))
+App.ActiveDocument.Sketch.addGeometry(Part.Line(App.Vector(50.018871,49.876770,0),App.Vector(50.018871,-50.160969,0)))
+App.ActiveDocument.Sketch.addGeometry(Part.Line(App.Vector(50.018871,-50.160969,0),App.Vector(-50.018871,-50.160969,0)))
+App.ActiveDocument.Sketch.addGeometry(Part.Line(App.Vector(-50.018871,-50.160969,0),App.Vector(-50.018871,49.876770,0)))
+App.ActiveDocument.Sketch.addConstraint(Sketcher.Constraint('Coincident',0,2,1,1)) 
+App.ActiveDocument.Sketch.addConstraint(Sketcher.Constraint('Coincident',1,2,2,1)) 
+App.ActiveDocument.Sketch.addConstraint(Sketcher.Constraint('Coincident',2,2,3,1)) 
+App.ActiveDocument.Sketch.addConstraint(Sketcher.Constraint('Coincident',3,2,0,1)) 
+App.ActiveDocument.Sketch.addConstraint(Sketcher.Constraint('Horizontal',0)) 
+App.ActiveDocument.Sketch.addConstraint(Sketcher.Constraint('Horizontal',2)) 
+App.ActiveDocument.Sketch.addConstraint(Sketcher.Constraint('Vertical',1)) 
+App.ActiveDocument.Sketch.addConstraint(Sketcher.Constraint('Vertical',3)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch.addConstraint(Sketcher.Constraint('Equal',2,3)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch.addConstraint(Sketcher.Constraint('Symmetric',2,2,0,2,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch.addConstraint(Sketcher.Constraint('DistanceX',2,-100.037740)) 
+App.ActiveDocument.Sketch.setDatum(10,App.Units.Quantity('-100.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pad","Pad")
+App.activeDocument().Pad.Sketch = App.activeDocument().Sketch
+App.activeDocument().Pad.Length = 10.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch")
+#Gui.activeDocument().setEdit('Pad',1)
+App.ActiveDocument.Pad.Length = 50.000000
+App.ActiveDocument.Pad.Reversed = 0
+App.ActiveDocument.Pad.Midplane = 0
+App.ActiveDocument.Pad.Length2 = 50.000000
+App.ActiveDocument.Pad.Type = 4
+App.ActiveDocument.Pad.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch001')
+#App.activeDocument().Sketch001.Support = (App.ActiveDocument.Pad,["Face6"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch001')
+App.ActiveDocument.Sketch001.addGeometry(Part.Circle(App.Vector(0.284196,0.142098,0),App.Vector(0,0,1),44.484048))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch001.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch001.addConstraint(Sketcher.Constraint('Radius',0,44.484048)) 
+App.ActiveDocument.Sketch001.setDatum(1,App.Units.Quantity('45.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket")
+App.activeDocument().Pocket.Sketch = App.activeDocument().Sketch001
+App.activeDocument().Pocket.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch001")
+#Gui.activeDocument().hide("Pad")
+#Gui.activeDocument().setEdit('Pocket')
+#Gui.ActiveDocument.Pocket.ShapeColor=Gui.ActiveDocument.Pad.ShapeColor
+#Gui.ActiveDocument.Pocket.LineColor=Gui.ActiveDocument.Pad.LineColor
+#Gui.ActiveDocument.Pocket.PointColor=Gui.ActiveDocument.Pad.PointColor
+App.ActiveDocument.Pocket.Length = 8.000000
+App.ActiveDocument.Pocket.Type = 0
+App.ActiveDocument.Pocket.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch002')
+#App.activeDocument().Sketch002.Support = (App.ActiveDocument.Pocket,["Face8"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch002')
+App.ActiveDocument.Sketch002.addGeometry(Part.Circle(App.Vector(0.000000,0.000000,0),App.Vector(0,0,1),39.815391))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch002.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch002.addConstraint(Sketcher.Constraint('Radius',0,39.815391)) 
+App.ActiveDocument.Sketch002.setDatum(1,App.Units.Quantity('40.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket001")
+App.activeDocument().Pocket001.Sketch = App.activeDocument().Sketch002
+App.activeDocument().Pocket001.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch002")
+#Gui.activeDocument().hide("Pocket")
+#Gui.activeDocument().setEdit('Pocket001')
+#Gui.ActiveDocument.Pocket001.ShapeColor=Gui.ActiveDocument.Pocket.ShapeColor
+#Gui.ActiveDocument.Pocket001.LineColor=Gui.ActiveDocument.Pocket.LineColor
+#Gui.ActiveDocument.Pocket001.PointColor=Gui.ActiveDocument.Pocket.PointColor
+App.ActiveDocument.Pocket001.Length = 5.000000
+App.ActiveDocument.Pocket001.Type = 0
+App.ActiveDocument.Pocket001.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch003')
+#App.activeDocument().Sketch003.Support = (App.ActiveDocument.Pocket001,["Face10"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch003')
+App.ActiveDocument.Sketch003.addGeometry(Part.Circle(App.Vector(0.000000,0.000000,0),App.Vector(0,0,1),35.269493))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch003.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch003.addConstraint(Sketcher.Constraint('Radius',0,35.269493)) 
+App.ActiveDocument.Sketch003.setDatum(1,App.Units.Quantity('35.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket002")
+App.activeDocument().Pocket002.Sketch = App.activeDocument().Sketch003
+App.activeDocument().Pocket002.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch003")
+#Gui.activeDocument().hide("Pocket001")
+#Gui.activeDocument().setEdit('Pocket002')
+#Gui.ActiveDocument.Pocket002.ShapeColor=Gui.ActiveDocument.Pocket001.ShapeColor
+#Gui.ActiveDocument.Pocket002.LineColor=Gui.ActiveDocument.Pocket001.LineColor
+#Gui.ActiveDocument.Pocket002.PointColor=Gui.ActiveDocument.Pocket001.PointColor
+App.ActiveDocument.Pocket002.Length = 5.000000
+App.ActiveDocument.Pocket002.Type = 0
+App.ActiveDocument.Pocket002.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch004')
+#App.activeDocument().Sketch004.Support = (App.ActiveDocument.Pocket002,["Face12"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch004')
+App.ActiveDocument.Sketch004.addGeometry(Part.Circle(App.Vector(0.284196,0.426294,0),App.Vector(0,0,1),29.986610))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch004.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch004.addConstraint(Sketcher.Constraint('Radius',0,29.986610)) 
+App.ActiveDocument.Sketch004.setDatum(1,App.Units.Quantity('30.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket003")
+App.activeDocument().Pocket003.Sketch = App.activeDocument().Sketch004
+App.activeDocument().Pocket003.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch004")
+#Gui.activeDocument().hide("Pocket002")
+#Gui.activeDocument().setEdit('Pocket003')
+#Gui.ActiveDocument.Pocket003.ShapeColor=Gui.ActiveDocument.Pocket002.ShapeColor
+#Gui.ActiveDocument.Pocket003.LineColor=Gui.ActiveDocument.Pocket002.LineColor
+#Gui.ActiveDocument.Pocket003.PointColor=Gui.ActiveDocument.Pocket002.PointColor
+App.ActiveDocument.Pocket003.Length = 5.000000
+App.ActiveDocument.Pocket003.Type = 0
+App.ActiveDocument.Pocket003.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch005')
+#App.activeDocument().Sketch005.Support = (App.ActiveDocument.Pocket003,["Face14"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch005')
+App.ActiveDocument.Sketch005.addGeometry(Part.Circle(App.Vector(0.000000,0.000000,0),App.Vector(0,0,1),25.125830))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch005.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch005.addConstraint(Sketcher.Constraint('Radius',0,25.125830)) 
+App.ActiveDocument.Sketch005.setDatum(1,App.Units.Quantity('25.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket004")
+App.activeDocument().Pocket004.Sketch = App.activeDocument().Sketch005
+App.activeDocument().Pocket004.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch005")
+#Gui.activeDocument().hide("Pocket003")
+#Gui.activeDocument().setEdit('Pocket004')
+#Gui.ActiveDocument.Pocket004.ShapeColor=Gui.ActiveDocument.Pocket003.ShapeColor
+#Gui.ActiveDocument.Pocket004.LineColor=Gui.ActiveDocument.Pocket003.LineColor
+#Gui.ActiveDocument.Pocket004.PointColor=Gui.ActiveDocument.Pocket003.PointColor
+App.ActiveDocument.Pocket004.Length = 5.000000
+App.ActiveDocument.Pocket004.Type = 0
+App.ActiveDocument.Pocket004.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch006')
+#App.activeDocument().Sketch006.Support = (App.ActiveDocument.Pocket004,["Face16"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch006')
+App.ActiveDocument.Sketch006.addGeometry(Part.Circle(App.Vector(0.000000,0.000000,0),App.Vector(0,0,1),20.037987))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch006.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch006.addConstraint(Sketcher.Constraint('Radius',0,20.037987)) 
+App.ActiveDocument.Sketch006.setDatum(1,App.Units.Quantity('20.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket005")
+App.activeDocument().Pocket005.Sketch = App.activeDocument().Sketch006
+App.activeDocument().Pocket005.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch006")
+#Gui.activeDocument().hide("Pocket004")
+#Gui.activeDocument().setEdit('Pocket005')
+#Gui.ActiveDocument.Pocket005.ShapeColor=Gui.ActiveDocument.Pocket004.ShapeColor
+#Gui.ActiveDocument.Pocket005.LineColor=Gui.ActiveDocument.Pocket004.LineColor
+#Gui.ActiveDocument.Pocket005.PointColor=Gui.ActiveDocument.Pocket004.PointColor
+App.ActiveDocument.Pocket005.Length = 5.000000
+App.ActiveDocument.Pocket005.Type = 0
+App.ActiveDocument.Pocket005.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch007')
+#App.activeDocument().Sketch007.Support = (App.ActiveDocument.Pocket005,["Face18"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch007')
+App.ActiveDocument.Sketch007.addGeometry(Part.Circle(App.Vector(0.852589,0.142098,0),App.Vector(0,0,1),15.190660))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch007.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch007.addConstraint(Sketcher.Constraint('Radius',0,15.190660)) 
+App.ActiveDocument.Sketch007.setDatum(1,App.Units.Quantity('15.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket006")
+App.activeDocument().Pocket006.Sketch = App.activeDocument().Sketch007
+App.activeDocument().Pocket006.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch007")
+#Gui.activeDocument().hide("Pocket005")
+#Gui.activeDocument().setEdit('Pocket006')
+#Gui.ActiveDocument.Pocket006.ShapeColor=Gui.ActiveDocument.Pocket005.ShapeColor
+#Gui.ActiveDocument.Pocket006.LineColor=Gui.ActiveDocument.Pocket005.LineColor
+#Gui.ActiveDocument.Pocket006.PointColor=Gui.ActiveDocument.Pocket005.PointColor
+App.ActiveDocument.Pocket006.Length = 5.000000
+App.ActiveDocument.Pocket006.Type = 0
+App.ActiveDocument.Pocket006.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch008')
+#App.activeDocument().Sketch008.Support = (App.ActiveDocument.Pocket006,["Face20"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch008')
+App.ActiveDocument.Sketch008.addGeometry(Part.Circle(App.Vector(0.000000,0.000000,0),App.Vector(0,0,1),11.283239))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch008.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch008.addConstraint(Sketcher.Constraint('Radius',0,11.283239)) 
+App.ActiveDocument.Sketch008.setDatum(1,App.Units.Quantity('10.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket007")
+App.activeDocument().Pocket007.Sketch = App.activeDocument().Sketch008
+App.activeDocument().Pocket007.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch008")
+#Gui.activeDocument().hide("Pocket006")
+#Gui.activeDocument().setEdit('Pocket007')
+#Gui.ActiveDocument.Pocket007.ShapeColor=Gui.ActiveDocument.Pocket006.ShapeColor
+#Gui.ActiveDocument.Pocket007.LineColor=Gui.ActiveDocument.Pocket006.LineColor
+#Gui.ActiveDocument.Pocket007.PointColor=Gui.ActiveDocument.Pocket006.PointColor
+App.ActiveDocument.Pocket007.Length = 4.000000
+App.ActiveDocument.Pocket007.Type = 0
+App.ActiveDocument.Pocket007.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch009')
+#App.activeDocument().Sketch009.Support = (App.ActiveDocument.Pocket007,["Face22"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch009')
+App.ActiveDocument.Sketch009.addGeometry(Part.Circle(App.Vector(0.284196,-0.426299,0),App.Vector(0,0,1),5.598047))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch009.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch009.addConstraint(Sketcher.Constraint('Radius',0,5.598047)) 
+App.ActiveDocument.Sketch009.setDatum(1,App.Units.Quantity('4.000000 mm'))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch009.setDatum(1,App.Units.Quantity('4.500000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket008")
+App.activeDocument().Pocket008.Sketch = App.activeDocument().Sketch009
+App.activeDocument().Pocket008.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch009")
+#Gui.activeDocument().hide("Pocket007")
+#Gui.activeDocument().setEdit('Pocket008')
+#Gui.ActiveDocument.Pocket008.ShapeColor=Gui.ActiveDocument.Pocket007.ShapeColor
+#Gui.ActiveDocument.Pocket008.LineColor=Gui.ActiveDocument.Pocket007.LineColor
+#Gui.ActiveDocument.Pocket008.PointColor=Gui.ActiveDocument.Pocket007.PointColor
+App.ActiveDocument.Pocket008.Length = 5.000000
+App.ActiveDocument.Pocket008.Type = 1
+App.ActiveDocument.Pocket008.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+#Gui.activeDocument().activeView().viewRear()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch010')
+#App.activeDocument().Sketch010.Support = (App.ActiveDocument.Pocket008,["Face1"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch010')
+App.ActiveDocument.Sketch010.addGeometry(Part.Circle(App.Vector(0.000000,0.000000,0),App.Vector(0,0,1),44.616510))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch010.addConstraint(Sketcher.Constraint('Radius',0,44.616510)) 
+App.ActiveDocument.Sketch010.setDatum(0,App.Units.Quantity('45.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket009")
+App.activeDocument().Pocket009.Sketch = App.activeDocument().Sketch010
+App.activeDocument().Pocket009.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch010")
+#Gui.activeDocument().hide("Pocket008")
+#Gui.activeDocument().setEdit('Pocket009')
+#Gui.ActiveDocument.Pocket009.ShapeColor=Gui.ActiveDocument.Pocket008.ShapeColor
+#Gui.ActiveDocument.Pocket009.LineColor=Gui.ActiveDocument.Pocket008.LineColor
+#Gui.ActiveDocument.Pocket009.PointColor=Gui.ActiveDocument.Pocket008.PointColor
+App.ActiveDocument.Pocket009.Length = 8.000000
+App.ActiveDocument.Pocket009.Type = 0
+App.ActiveDocument.Pocket009.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch011')
+#App.activeDocument().Sketch011.Support = (App.ActiveDocument.Pocket009,["Face10"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch011')
+App.ActiveDocument.Sketch011.addGeometry(Part.Circle(App.Vector(0.000000,0.000000,0),App.Vector(0,0,1),40.137749))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch011.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch011.addConstraint(Sketcher.Constraint('Radius',0,40.137749)) 
+App.ActiveDocument.Sketch011.setDatum(1,App.Units.Quantity('40.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket010")
+App.activeDocument().Pocket010.Sketch = App.activeDocument().Sketch011
+App.activeDocument().Pocket010.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch011")
+#Gui.activeDocument().hide("Pocket009")
+#Gui.activeDocument().setEdit('Pocket010')
+#Gui.ActiveDocument.Pocket010.ShapeColor=Gui.ActiveDocument.Pocket009.ShapeColor
+#Gui.ActiveDocument.Pocket010.LineColor=Gui.ActiveDocument.Pocket009.LineColor
+#Gui.ActiveDocument.Pocket010.PointColor=Gui.ActiveDocument.Pocket009.PointColor
+App.ActiveDocument.Pocket010.Length = 5.000000
+App.ActiveDocument.Pocket010.Type = 0
+App.ActiveDocument.Pocket010.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch012')
+#App.activeDocument().Sketch012.Support = (App.ActiveDocument.Pocket010,["Face16"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch012')
+App.ActiveDocument.Sketch012.addGeometry(Part.Circle(App.Vector(0.852589,-0.173525,0),App.Vector(0,0,1),34.339792))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch012.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch012.addConstraint(Sketcher.Constraint('Radius',0,34.339792)) 
+App.ActiveDocument.Sketch012.setDatum(1,App.Units.Quantity('35.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket011")
+App.activeDocument().Pocket011.Sketch = App.activeDocument().Sketch012
+App.activeDocument().Pocket011.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch012")
+#Gui.activeDocument().hide("Pocket010")
+#Gui.activeDocument().setEdit('Pocket011')
+#Gui.ActiveDocument.Pocket011.ShapeColor=Gui.ActiveDocument.Pocket010.ShapeColor
+#Gui.ActiveDocument.Pocket011.LineColor=Gui.ActiveDocument.Pocket010.LineColor
+#Gui.ActiveDocument.Pocket011.PointColor=Gui.ActiveDocument.Pocket010.PointColor
+App.ActiveDocument.Pocket011.Length = 5.000000
+App.ActiveDocument.Pocket011.Type = 0
+App.ActiveDocument.Pocket011.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch013')
+#App.activeDocument().Sketch013.Support = (App.ActiveDocument.Pocket011,["Face22"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch013')
+App.ActiveDocument.Sketch013.addGeometry(Part.Circle(App.Vector(0.852589,-0.173525,0),App.Vector(0,0,1),29.486843))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch013.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch013.addConstraint(Sketcher.Constraint('Radius',0,29.486843)) 
+App.ActiveDocument.Sketch013.setDatum(1,App.Units.Quantity('30.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket012")
+App.activeDocument().Pocket012.Sketch = App.activeDocument().Sketch013
+App.activeDocument().Pocket012.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch013")
+#Gui.activeDocument().hide("Pocket011")
+#Gui.activeDocument().setEdit('Pocket012')
+#Gui.ActiveDocument.Pocket012.ShapeColor=Gui.ActiveDocument.Pocket011.ShapeColor
+#Gui.ActiveDocument.Pocket012.LineColor=Gui.ActiveDocument.Pocket011.LineColor
+#Gui.ActiveDocument.Pocket012.PointColor=Gui.ActiveDocument.Pocket011.PointColor
+App.ActiveDocument.Pocket012.Length = 5.000000
+App.ActiveDocument.Pocket012.Type = 0
+App.ActiveDocument.Pocket012.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch014')
+#App.activeDocument().Sketch014.Support = (App.ActiveDocument.Pocket012,["Face28"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch014')
+App.ActiveDocument.Sketch014.addGeometry(Part.Circle(App.Vector(0.284196,-0.173525,0),App.Vector(0,0,1),25.030418))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch014.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch014.addConstraint(Sketcher.Constraint('Radius',0,25.030418)) 
+App.ActiveDocument.Sketch014.setDatum(1,App.Units.Quantity('25.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket013")
+App.activeDocument().Pocket013.Sketch = App.activeDocument().Sketch014
+App.activeDocument().Pocket013.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch014")
+#Gui.activeDocument().hide("Pocket012")
+#Gui.activeDocument().setEdit('Pocket013')
+#Gui.ActiveDocument.Pocket013.ShapeColor=Gui.ActiveDocument.Pocket012.ShapeColor
+#Gui.ActiveDocument.Pocket013.LineColor=Gui.ActiveDocument.Pocket012.LineColor
+#Gui.ActiveDocument.Pocket013.PointColor=Gui.ActiveDocument.Pocket012.PointColor
+App.ActiveDocument.Pocket013.Length = 5.000000
+App.ActiveDocument.Pocket013.Type = 0
+App.ActiveDocument.Pocket013.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch015')
+#App.activeDocument().Sketch015.Support = (App.ActiveDocument.Pocket013,["Face33"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch015')
+App.ActiveDocument.Sketch015.addGeometry(Part.Circle(App.Vector(0.284196,-0.173525,0),App.Vector(0,0,1),20.144019))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch015.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch015.addConstraint(Sketcher.Constraint('Radius',0,20.144019)) 
+App.ActiveDocument.Sketch015.setDatum(1,App.Units.Quantity('20.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket014")
+App.activeDocument().Pocket014.Sketch = App.activeDocument().Sketch015
+App.activeDocument().Pocket014.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch015")
+#Gui.activeDocument().hide("Pocket013")
+#Gui.activeDocument().setEdit('Pocket014')
+#Gui.ActiveDocument.Pocket014.ShapeColor=Gui.ActiveDocument.Pocket013.ShapeColor
+#Gui.ActiveDocument.Pocket014.LineColor=Gui.ActiveDocument.Pocket013.LineColor
+#Gui.ActiveDocument.Pocket014.PointColor=Gui.ActiveDocument.Pocket013.PointColor
+App.ActiveDocument.Pocket014.Length = 5.000000
+App.ActiveDocument.Pocket014.Type = 0
+App.ActiveDocument.Pocket014.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch016')
+#App.activeDocument().Sketch016.Support = (App.ActiveDocument.Pocket014,["Face27"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch016')
+App.ActiveDocument.Sketch016.addGeometry(Part.Circle(App.Vector(0.568393,0.394872,0),App.Vector(0,0,1),14.613426))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch016.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch016.addConstraint(Sketcher.Constraint('Radius',0,14.613426)) 
+App.ActiveDocument.Sketch016.setDatum(1,App.Units.Quantity('15.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket015")
+App.activeDocument().Pocket015.Sketch = App.activeDocument().Sketch016
+App.activeDocument().Pocket015.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch016")
+#Gui.activeDocument().hide("Pocket014")
+#Gui.activeDocument().setEdit('Pocket015')
+#Gui.ActiveDocument.Pocket015.ShapeColor=Gui.ActiveDocument.Pocket014.ShapeColor
+#Gui.ActiveDocument.Pocket015.LineColor=Gui.ActiveDocument.Pocket014.LineColor
+#Gui.ActiveDocument.Pocket015.PointColor=Gui.ActiveDocument.Pocket014.PointColor
+App.ActiveDocument.Pocket015.Length = 5.000000
+App.ActiveDocument.Pocket015.Type = 0
+App.ActiveDocument.Pocket015.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch017')
+#App.activeDocument().Sketch017.Support = (App.ActiveDocument.Pocket015,["Face21"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch017')
+App.ActiveDocument.Sketch017.addGeometry(Part.Circle(App.Vector(0.284196,-0.741921,0),App.Vector(0,0,1),10.821943))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch017.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch017.addConstraint(Sketcher.Constraint('Radius',0,10.821943)) 
+App.ActiveDocument.Sketch017.setDatum(1,App.Units.Quantity('10.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket016")
+App.activeDocument().Pocket016.Sketch = App.activeDocument().Sketch017
+App.activeDocument().Pocket016.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch017")
+#Gui.activeDocument().hide("Pocket015")
+#Gui.activeDocument().setEdit('Pocket016')
+#Gui.ActiveDocument.Pocket016.ShapeColor=Gui.ActiveDocument.Pocket015.ShapeColor
+#Gui.ActiveDocument.Pocket016.LineColor=Gui.ActiveDocument.Pocket015.LineColor
+#Gui.ActiveDocument.Pocket016.PointColor=Gui.ActiveDocument.Pocket015.PointColor
+App.ActiveDocument.Pocket016.Length = 4.000000
+App.ActiveDocument.Pocket016.Type = 0
+App.ActiveDocument.Pocket016.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch018')
+#App.activeDocument().Sketch018.Support = (App.ActiveDocument.Pocket016,["Face15"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch018')
+App.ActiveDocument.Sketch018.addGeometry(Part.Circle(App.Vector(0.284196,-0.173525,0),App.Vector(0,0,1),5.858893))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch018.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch018.addConstraint(Sketcher.Constraint('Radius',0,5.858893)) 
+App.ActiveDocument.Sketch018.setDatum(1,App.Units.Quantity('4.500000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket017")
+App.activeDocument().Pocket017.Sketch = App.activeDocument().Sketch018
+App.activeDocument().Pocket017.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch018")
+#Gui.activeDocument().hide("Pocket016")
+#Gui.activeDocument().setEdit('Pocket017')
+#Gui.ActiveDocument.Pocket017.ShapeColor=Gui.ActiveDocument.Pocket016.ShapeColor
+#Gui.ActiveDocument.Pocket017.LineColor=Gui.ActiveDocument.Pocket016.LineColor
+#Gui.ActiveDocument.Pocket017.PointColor=Gui.ActiveDocument.Pocket016.PointColor
+App.ActiveDocument.Pocket017.Length = 5.000000
+App.ActiveDocument.Pocket017.Type = 1
+App.ActiveDocument.Pocket017.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+#Gui.activeDocument().activeView().viewBottom()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch019')
+#App.activeDocument().Sketch019.Support = (App.ActiveDocument.Pocket017,["Face3"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch019')
+App.ActiveDocument.Sketch019.addGeometry(Part.Circle(App.Vector(0.000000,0.000000,0),App.Vector(0,0,1),45.530497))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch019.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch019.addConstraint(Sketcher.Constraint('Radius',0,45.530497)) 
+App.ActiveDocument.Sketch019.setDatum(1,App.Units.Quantity('45.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket018")
+App.activeDocument().Pocket018.Sketch = App.activeDocument().Sketch019
+App.activeDocument().Pocket018.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch019")
+#Gui.activeDocument().hide("Pocket017")
+#Gui.activeDocument().setEdit('Pocket018')
+#Gui.ActiveDocument.Pocket018.ShapeColor=Gui.ActiveDocument.Pocket017.ShapeColor
+#Gui.ActiveDocument.Pocket018.LineColor=Gui.ActiveDocument.Pocket017.LineColor
+#Gui.ActiveDocument.Pocket018.PointColor=Gui.ActiveDocument.Pocket017.PointColor
+App.ActiveDocument.Pocket018.Length = 8.000000
+App.ActiveDocument.Pocket018.Type = 0
+App.ActiveDocument.Pocket018.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch020')
+#App.activeDocument().Sketch020.Support = (App.ActiveDocument.Pocket018,["Face12"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch020')
+App.ActiveDocument.Sketch020.addGeometry(Part.Circle(App.Vector(0.000000,0.000000,0),App.Vector(0,0,1),40.000575))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch020.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch020.addConstraint(Sketcher.Constraint('Radius',0,40.000575)) 
+App.ActiveDocument.Sketch020.setDatum(1,App.Units.Quantity('40.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket019")
+App.activeDocument().Pocket019.Sketch = App.activeDocument().Sketch020
+App.activeDocument().Pocket019.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch020")
+#Gui.activeDocument().hide("Pocket018")
+#Gui.activeDocument().setEdit('Pocket019')
+#Gui.ActiveDocument.Pocket019.ShapeColor=Gui.ActiveDocument.Pocket018.ShapeColor
+#Gui.ActiveDocument.Pocket019.LineColor=Gui.ActiveDocument.Pocket018.LineColor
+#Gui.ActiveDocument.Pocket019.PointColor=Gui.ActiveDocument.Pocket018.PointColor
+App.ActiveDocument.Pocket019.Length = 5.000000
+App.ActiveDocument.Pocket019.Type = 0
+App.ActiveDocument.Pocket019.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch021')
+#App.activeDocument().Sketch021.Support = (App.ActiveDocument.Pocket019,["Face22"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch021')
+App.ActiveDocument.Sketch021.addGeometry(Part.Circle(App.Vector(0.000000,0.000000,0),App.Vector(0,0,1),35.911721))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch021.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch021.addConstraint(Sketcher.Constraint('Radius',0,35.911721)) 
+App.ActiveDocument.Sketch021.setDatum(1,App.Units.Quantity('35.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket020")
+App.activeDocument().Pocket020.Sketch = App.activeDocument().Sketch021
+App.activeDocument().Pocket020.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch021")
+#Gui.activeDocument().hide("Pocket019")
+#Gui.activeDocument().setEdit('Pocket020')
+#Gui.ActiveDocument.Pocket020.ShapeColor=Gui.ActiveDocument.Pocket019.ShapeColor
+#Gui.ActiveDocument.Pocket020.LineColor=Gui.ActiveDocument.Pocket019.LineColor
+#Gui.ActiveDocument.Pocket020.PointColor=Gui.ActiveDocument.Pocket019.PointColor
+App.ActiveDocument.Pocket020.Length = 5.000000
+App.ActiveDocument.Pocket020.Type = 0
+App.ActiveDocument.Pocket020.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch022')
+#App.activeDocument().Sketch022.Support = (App.ActiveDocument.Pocket020,["Face22"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch022')
+App.ActiveDocument.Sketch022.addGeometry(Part.Circle(App.Vector(0.852589,-0.426296,0),App.Vector(0,0,1),29.482739))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch022.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch022.addConstraint(Sketcher.Constraint('Radius',0,29.482739)) 
+App.ActiveDocument.Sketch022.setDatum(1,App.Units.Quantity('30.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket021")
+App.activeDocument().Pocket021.Sketch = App.activeDocument().Sketch022
+App.activeDocument().Pocket021.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch022")
+#Gui.activeDocument().hide("Pocket020")
+#Gui.activeDocument().setEdit('Pocket021')
+#Gui.ActiveDocument.Pocket021.ShapeColor=Gui.ActiveDocument.Pocket020.ShapeColor
+#Gui.ActiveDocument.Pocket021.LineColor=Gui.ActiveDocument.Pocket020.LineColor
+#Gui.ActiveDocument.Pocket021.PointColor=Gui.ActiveDocument.Pocket020.PointColor
+App.ActiveDocument.Pocket021.Length = 5.000000
+App.ActiveDocument.Pocket021.Type = 0
+App.ActiveDocument.Pocket021.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch023')
+#App.activeDocument().Sketch023.Support = (App.ActiveDocument.Pocket021,["Face22"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch023')
+App.ActiveDocument.Sketch023.addGeometry(Part.Circle(App.Vector(0.000000,0.000000,0),App.Vector(0,0,1),25.834291))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch023.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch023.addConstraint(Sketcher.Constraint('Radius',0,25.834291)) 
+App.ActiveDocument.Sketch023.setDatum(1,App.Units.Quantity('25.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket022")
+App.activeDocument().Pocket022.Sketch = App.activeDocument().Sketch023
+App.activeDocument().Pocket022.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch023")
+#Gui.activeDocument().hide("Pocket021")
+#Gui.activeDocument().setEdit('Pocket022')
+#Gui.ActiveDocument.Pocket022.ShapeColor=Gui.ActiveDocument.Pocket021.ShapeColor
+#Gui.ActiveDocument.Pocket022.LineColor=Gui.ActiveDocument.Pocket021.LineColor
+#Gui.ActiveDocument.Pocket022.PointColor=Gui.ActiveDocument.Pocket021.PointColor
+App.ActiveDocument.Pocket022.Length = 5.000000
+App.ActiveDocument.Pocket022.Type = 0
+App.ActiveDocument.Pocket022.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch024')
+#App.activeDocument().Sketch024.Support = (App.ActiveDocument.Pocket022,["Face22"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch024')
+App.ActiveDocument.Sketch024.addGeometry(Part.Circle(App.Vector(0.852589,-0.426296,0),App.Vector(0,0,1),19.075179))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch024.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch024.addConstraint(Sketcher.Constraint('Radius',0,19.075179)) 
+App.ActiveDocument.Sketch024.setDatum(1,App.Units.Quantity('20.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket023")
+App.activeDocument().Pocket023.Sketch = App.activeDocument().Sketch024
+App.activeDocument().Pocket023.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch024")
+#Gui.activeDocument().hide("Pocket022")
+#Gui.activeDocument().setEdit('Pocket023')
+#Gui.ActiveDocument.Pocket023.ShapeColor=Gui.ActiveDocument.Pocket022.ShapeColor
+#Gui.ActiveDocument.Pocket023.LineColor=Gui.ActiveDocument.Pocket022.LineColor
+#Gui.ActiveDocument.Pocket023.PointColor=Gui.ActiveDocument.Pocket022.PointColor
+App.ActiveDocument.Pocket023.Length = 5.000000
+App.ActiveDocument.Pocket023.Type = 0
+App.ActiveDocument.Pocket023.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch025')
+#App.activeDocument().Sketch025.Support = (App.ActiveDocument.Pocket023,["Face22"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch025')
+App.ActiveDocument.Sketch025.addGeometry(Part.Circle(App.Vector(0.000000,0.000000,0),App.Vector(0,0,1),15.790903))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch025.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch025.addConstraint(Sketcher.Constraint('Radius',0,15.790903)) 
+App.ActiveDocument.Sketch025.setDatum(1,App.Units.Quantity('15.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket024")
+App.activeDocument().Pocket024.Sketch = App.activeDocument().Sketch025
+App.activeDocument().Pocket024.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch025")
+#Gui.activeDocument().hide("Pocket023")
+#Gui.activeDocument().setEdit('Pocket024')
+#Gui.ActiveDocument.Pocket024.ShapeColor=Gui.ActiveDocument.Pocket023.ShapeColor
+#Gui.ActiveDocument.Pocket024.LineColor=Gui.ActiveDocument.Pocket023.LineColor
+#Gui.ActiveDocument.Pocket024.PointColor=Gui.ActiveDocument.Pocket023.PointColor
+App.ActiveDocument.Pocket024.Length = 5.000000
+App.ActiveDocument.Pocket024.Type = 0
+App.ActiveDocument.Pocket024.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch026')
+#App.activeDocument().Sketch026.Support = (App.ActiveDocument.Pocket024,["Face22"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch026')
+App.ActiveDocument.Sketch026.addGeometry(Part.Circle(App.Vector(0.000000,0.000000,0),App.Vector(0,0,1),9.571404))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch026.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch026.addConstraint(Sketcher.Constraint('Radius',0,9.571404)) 
+App.ActiveDocument.Sketch026.setDatum(1,App.Units.Quantity('10.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket025")
+App.activeDocument().Pocket025.Sketch = App.activeDocument().Sketch026
+App.activeDocument().Pocket025.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch026")
+#Gui.activeDocument().hide("Pocket024")
+#Gui.activeDocument().setEdit('Pocket025')
+#Gui.ActiveDocument.Pocket025.ShapeColor=Gui.ActiveDocument.Pocket024.ShapeColor
+#Gui.ActiveDocument.Pocket025.LineColor=Gui.ActiveDocument.Pocket024.LineColor
+#Gui.ActiveDocument.Pocket025.PointColor=Gui.ActiveDocument.Pocket024.PointColor
+App.ActiveDocument.Pocket025.Length = 4.000000
+App.ActiveDocument.Pocket025.Type = 0
+App.ActiveDocument.Pocket025.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+#Gui.activeDocument().activeView().viewFront()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch027')
+#App.activeDocument().Sketch027.Support = (App.ActiveDocument.Pocket025,["Face7"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch027')
+App.ActiveDocument.Sketch027.addGeometry(Part.Circle(App.Vector(0.000000,0.394873,0),App.Vector(0,0,1),44.925780))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch027.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch027.addConstraint(Sketcher.Constraint('Radius',0,44.925780)) 
+App.ActiveDocument.Sketch027.setDatum(1,App.Units.Quantity('45.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket026")
+App.activeDocument().Pocket026.Sketch = App.activeDocument().Sketch027
+App.activeDocument().Pocket026.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch027")
+#Gui.activeDocument().hide("Pocket025")
+#Gui.activeDocument().setEdit('Pocket026')
+#Gui.ActiveDocument.Pocket026.ShapeColor=Gui.ActiveDocument.Pocket025.ShapeColor
+#Gui.ActiveDocument.Pocket026.LineColor=Gui.ActiveDocument.Pocket025.LineColor
+#Gui.ActiveDocument.Pocket026.PointColor=Gui.ActiveDocument.Pocket025.PointColor
+App.ActiveDocument.Pocket026.Length = 8.000000
+App.ActiveDocument.Pocket026.Type = 0
+App.ActiveDocument.Pocket026.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch028')
+#App.activeDocument().Sketch028.Support = (App.ActiveDocument.Pocket026,["Face15"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch028')
+App.ActiveDocument.Sketch028.addGeometry(Part.Circle(App.Vector(-0.000000,0.000000,0),App.Vector(0,0,1),40.172588))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch028.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch028.addConstraint(Sketcher.Constraint('Radius',0,40.172588)) 
+App.ActiveDocument.Sketch028.setDatum(1,App.Units.Quantity('40.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket027")
+App.activeDocument().Pocket027.Sketch = App.activeDocument().Sketch028
+App.activeDocument().Pocket027.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch028")
+#Gui.activeDocument().hide("Pocket026")
+#Gui.activeDocument().setEdit('Pocket027')
+#Gui.ActiveDocument.Pocket027.ShapeColor=Gui.ActiveDocument.Pocket026.ShapeColor
+#Gui.ActiveDocument.Pocket027.LineColor=Gui.ActiveDocument.Pocket026.LineColor
+#Gui.ActiveDocument.Pocket027.PointColor=Gui.ActiveDocument.Pocket026.PointColor
+App.ActiveDocument.Pocket027.Length = 5.000000
+App.ActiveDocument.Pocket027.Type = 0
+App.ActiveDocument.Pocket027.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch029')
+#App.activeDocument().Sketch029.Support = (App.ActiveDocument.Pocket027,["Face23"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch029')
+App.ActiveDocument.Sketch029.addGeometry(Part.Circle(App.Vector(0.284196,0.394873,0),App.Vector(0,0,1),34.902025))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch029.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch029.addConstraint(Sketcher.Constraint('Radius',0,34.902025)) 
+App.ActiveDocument.Sketch029.setDatum(1,App.Units.Quantity('35.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket028")
+App.activeDocument().Pocket028.Sketch = App.activeDocument().Sketch029
+App.activeDocument().Pocket028.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch029")
+#Gui.activeDocument().hide("Pocket027")
+#Gui.activeDocument().setEdit('Pocket028')
+#Gui.ActiveDocument.Pocket028.ShapeColor=Gui.ActiveDocument.Pocket027.ShapeColor
+#Gui.ActiveDocument.Pocket028.LineColor=Gui.ActiveDocument.Pocket027.LineColor
+#Gui.ActiveDocument.Pocket028.PointColor=Gui.ActiveDocument.Pocket027.PointColor
+App.ActiveDocument.Pocket028.Length = 5.000000
+App.ActiveDocument.Pocket028.Type = 0
+App.ActiveDocument.Pocket028.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch030')
+#App.activeDocument().Sketch030.Support = (App.ActiveDocument.Pocket028,["Face31"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch030')
+App.ActiveDocument.Sketch030.addGeometry(Part.Circle(App.Vector(-0.000000,0.000000,0),App.Vector(0,0,1),30.131430))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch030.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch030.addConstraint(Sketcher.Constraint('Radius',0,30.131430)) 
+App.ActiveDocument.Sketch030.setDatum(1,App.Units.Quantity('30.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket029")
+App.activeDocument().Pocket029.Sketch = App.activeDocument().Sketch030
+App.activeDocument().Pocket029.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch030")
+#Gui.activeDocument().hide("Pocket028")
+#Gui.activeDocument().setEdit('Pocket029')
+#Gui.ActiveDocument.Pocket029.ShapeColor=Gui.ActiveDocument.Pocket028.ShapeColor
+#Gui.ActiveDocument.Pocket029.LineColor=Gui.ActiveDocument.Pocket028.LineColor
+#Gui.ActiveDocument.Pocket029.PointColor=Gui.ActiveDocument.Pocket028.PointColor
+App.ActiveDocument.Pocket029.Length = 5.000000
+App.ActiveDocument.Pocket029.Type = 0
+App.ActiveDocument.Pocket029.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch031')
+#App.activeDocument().Sketch031.Support = (App.ActiveDocument.Pocket029,["Face39"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch031')
+App.ActiveDocument.Sketch031.addGeometry(Part.Circle(App.Vector(-0.000000,0.000000,0),App.Vector(0,0,1),25.120106))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch031.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch031.addConstraint(Sketcher.Constraint('Radius',0,25.120106)) 
+App.ActiveDocument.Sketch031.setDatum(1,App.Units.Quantity('25.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket030")
+App.activeDocument().Pocket030.Sketch = App.activeDocument().Sketch031
+App.activeDocument().Pocket030.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch031")
+#Gui.activeDocument().hide("Pocket029")
+#Gui.activeDocument().setEdit('Pocket030')
+#Gui.ActiveDocument.Pocket030.ShapeColor=Gui.ActiveDocument.Pocket029.ShapeColor
+#Gui.ActiveDocument.Pocket030.LineColor=Gui.ActiveDocument.Pocket029.LineColor
+#Gui.ActiveDocument.Pocket030.PointColor=Gui.ActiveDocument.Pocket029.PointColor
+App.ActiveDocument.Pocket030.Length = 5.000000
+App.ActiveDocument.Pocket030.Type = 0
+App.ActiveDocument.Pocket030.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch032')
+#App.activeDocument().Sketch032.Support = (App.ActiveDocument.Pocket030,["Face47"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch032')
+App.ActiveDocument.Sketch032.addGeometry(Part.Circle(App.Vector(-0.000000,0.000000,0),App.Vector(0,0,1),20.070386))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch032.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch032.addConstraint(Sketcher.Constraint('Radius',0,20.070386)) 
+App.ActiveDocument.Sketch032.setDatum(1,App.Units.Quantity('20.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket031")
+App.activeDocument().Pocket031.Sketch = App.activeDocument().Sketch032
+App.activeDocument().Pocket031.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch032")
+#Gui.activeDocument().hide("Pocket030")
+#Gui.activeDocument().setEdit('Pocket031')
+#Gui.ActiveDocument.Pocket031.ShapeColor=Gui.ActiveDocument.Pocket030.ShapeColor
+#Gui.ActiveDocument.Pocket031.LineColor=Gui.ActiveDocument.Pocket030.LineColor
+#Gui.ActiveDocument.Pocket031.PointColor=Gui.ActiveDocument.Pocket030.PointColor
+App.ActiveDocument.Pocket031.Length = 5.000000
+App.ActiveDocument.Pocket031.Type = 0
+App.ActiveDocument.Pocket031.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch033')
+#App.activeDocument().Sketch033.Support = (App.ActiveDocument.Pocket031,["Face55"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch033')
+App.ActiveDocument.Sketch033.addGeometry(Part.Circle(App.Vector(0.568393,-0.173524,0),App.Vector(0,0,1),15.370369))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch033.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch033.addConstraint(Sketcher.Constraint('Radius',0,15.370369)) 
+App.ActiveDocument.Sketch033.setDatum(1,App.Units.Quantity('15.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket032")
+App.activeDocument().Pocket032.Sketch = App.activeDocument().Sketch033
+App.activeDocument().Pocket032.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch033")
+#Gui.activeDocument().hide("Pocket031")
+#Gui.activeDocument().setEdit('Pocket032')
+#Gui.ActiveDocument.Pocket032.ShapeColor=Gui.ActiveDocument.Pocket031.ShapeColor
+#Gui.ActiveDocument.Pocket032.LineColor=Gui.ActiveDocument.Pocket031.LineColor
+#Gui.ActiveDocument.Pocket032.PointColor=Gui.ActiveDocument.Pocket031.PointColor
+App.ActiveDocument.Pocket032.Length = 5.000000
+App.ActiveDocument.Pocket032.Type = 0
+App.ActiveDocument.Pocket032.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch034')
+#App.activeDocument().Sketch034.Support = (App.ActiveDocument.Pocket032,["Face63"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch034')
+App.ActiveDocument.Sketch034.addGeometry(Part.Circle(App.Vector(0.852589,-0.173524,0),App.Vector(0,0,1),9.348350))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch034.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch034.addConstraint(Sketcher.Constraint('Radius',0,9.348350)) 
+App.ActiveDocument.Sketch034.setDatum(1,App.Units.Quantity('10.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket033")
+App.activeDocument().Pocket033.Sketch = App.activeDocument().Sketch034
+App.activeDocument().Pocket033.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch034")
+#Gui.activeDocument().hide("Pocket032")
+#Gui.activeDocument().setEdit('Pocket033')
+#Gui.ActiveDocument.Pocket033.ShapeColor=Gui.ActiveDocument.Pocket032.ShapeColor
+#Gui.ActiveDocument.Pocket033.LineColor=Gui.ActiveDocument.Pocket032.LineColor
+#Gui.ActiveDocument.Pocket033.PointColor=Gui.ActiveDocument.Pocket032.PointColor
+App.ActiveDocument.Pocket033.Length = 4.000000
+App.ActiveDocument.Pocket033.Type = 0
+App.ActiveDocument.Pocket033.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+#Gui.activeDocument().activeView().viewRight()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch035')
+#App.activeDocument().Sketch035.Support = (App.ActiveDocument.Pocket033,["Face5"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch035')
+App.ActiveDocument.Sketch035.addGeometry(Part.Circle(App.Vector(0.000000,0.000000,0),App.Vector(0,0,1),44.975302))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch035.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch035.addConstraint(Sketcher.Constraint('Radius',0,44.975302)) 
+App.ActiveDocument.Sketch035.setDatum(1,App.Units.Quantity('45.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket034")
+App.activeDocument().Pocket034.Sketch = App.activeDocument().Sketch035
+App.activeDocument().Pocket034.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch035")
+#Gui.activeDocument().hide("Pocket033")
+#Gui.activeDocument().setEdit('Pocket034')
+#Gui.ActiveDocument.Pocket034.ShapeColor=Gui.ActiveDocument.Pocket033.ShapeColor
+#Gui.ActiveDocument.Pocket034.LineColor=Gui.ActiveDocument.Pocket033.LineColor
+#Gui.ActiveDocument.Pocket034.PointColor=Gui.ActiveDocument.Pocket033.PointColor
+App.ActiveDocument.Pocket034.Length = 8.000000
+App.ActiveDocument.Pocket034.Type = 0
+App.ActiveDocument.Pocket034.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch036')
+#App.activeDocument().Sketch036.Support = (App.ActiveDocument.Pocket034,["Face15"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch036')
+App.ActiveDocument.Sketch036.addGeometry(Part.Circle(App.Vector(0.284192,-0.173528,0),App.Vector(0,0,1),39.962952))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch036.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch036.addConstraint(Sketcher.Constraint('Radius',0,39.962952)) 
+App.ActiveDocument.Sketch036.setDatum(1,App.Units.Quantity('40.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket035")
+App.activeDocument().Pocket035.Sketch = App.activeDocument().Sketch036
+App.activeDocument().Pocket035.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch036")
+#Gui.activeDocument().hide("Pocket034")
+#Gui.activeDocument().setEdit('Pocket035')
+#Gui.ActiveDocument.Pocket035.ShapeColor=Gui.ActiveDocument.Pocket034.ShapeColor
+#Gui.ActiveDocument.Pocket035.LineColor=Gui.ActiveDocument.Pocket034.LineColor
+#Gui.ActiveDocument.Pocket035.PointColor=Gui.ActiveDocument.Pocket034.PointColor
+App.ActiveDocument.Pocket035.Length = 5.000000
+App.ActiveDocument.Pocket035.Type = 0
+App.ActiveDocument.Pocket035.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch037')
+#App.activeDocument().Sketch037.Support = (App.ActiveDocument.Pocket035,["Face25"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch037')
+App.ActiveDocument.Sketch037.addGeometry(Part.Circle(App.Vector(0.000000,0.000000,0),App.Vector(0,0,1),34.168365))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch037.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch037.addConstraint(Sketcher.Constraint('Radius',0,34.168365)) 
+App.ActiveDocument.Sketch037.setDatum(1,App.Units.Quantity('35.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket036")
+App.activeDocument().Pocket036.Sketch = App.activeDocument().Sketch037
+App.activeDocument().Pocket036.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch037")
+#Gui.activeDocument().hide("Pocket035")
+#Gui.activeDocument().setEdit('Pocket036')
+#Gui.ActiveDocument.Pocket036.ShapeColor=Gui.ActiveDocument.Pocket035.ShapeColor
+#Gui.ActiveDocument.Pocket036.LineColor=Gui.ActiveDocument.Pocket035.LineColor
+#Gui.ActiveDocument.Pocket036.PointColor=Gui.ActiveDocument.Pocket035.PointColor
+App.ActiveDocument.Pocket036.Length = 5.000000
+App.ActiveDocument.Pocket036.Type = 0
+App.ActiveDocument.Pocket036.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch038')
+#App.activeDocument().Sketch038.Support = (App.ActiveDocument.Pocket036,["Face35"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch038')
+App.ActiveDocument.Sketch038.addGeometry(Part.Circle(App.Vector(0.284192,-0.173528,0),App.Vector(0,0,1),29.889482))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch038.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch038.addConstraint(Sketcher.Constraint('Radius',0,29.889482)) 
+App.ActiveDocument.Sketch038.setDatum(1,App.Units.Quantity('30.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket037")
+App.activeDocument().Pocket037.Sketch = App.activeDocument().Sketch038
+App.activeDocument().Pocket037.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch038")
+#Gui.activeDocument().hide("Pocket036")
+#Gui.activeDocument().setEdit('Pocket037')
+#Gui.ActiveDocument.Pocket037.ShapeColor=Gui.ActiveDocument.Pocket036.ShapeColor
+#Gui.ActiveDocument.Pocket037.LineColor=Gui.ActiveDocument.Pocket036.LineColor
+#Gui.ActiveDocument.Pocket037.PointColor=Gui.ActiveDocument.Pocket036.PointColor
+App.ActiveDocument.Pocket037.Length = 5.000000
+App.ActiveDocument.Pocket037.Type = 0
+App.ActiveDocument.Pocket037.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch039')
+#App.activeDocument().Sketch039.Support = (App.ActiveDocument.Pocket037,["Face45"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch039')
+App.ActiveDocument.Sketch039.addGeometry(Part.Circle(App.Vector(0.568388,-0.173528,0),App.Vector(0,0,1),23.411440))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch039.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch039.addConstraint(Sketcher.Constraint('Radius',0,23.411440)) 
+App.ActiveDocument.Sketch039.setDatum(1,App.Units.Quantity('25.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket038")
+App.activeDocument().Pocket038.Sketch = App.activeDocument().Sketch039
+App.activeDocument().Pocket038.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch039")
+#Gui.activeDocument().hide("Pocket037")
+#Gui.activeDocument().setEdit('Pocket038')
+#Gui.ActiveDocument.Pocket038.ShapeColor=Gui.ActiveDocument.Pocket037.ShapeColor
+#Gui.ActiveDocument.Pocket038.LineColor=Gui.ActiveDocument.Pocket037.LineColor
+#Gui.ActiveDocument.Pocket038.PointColor=Gui.ActiveDocument.Pocket037.PointColor
+App.ActiveDocument.Pocket038.Length = 5.000000
+App.ActiveDocument.Pocket038.Type = 0
+App.ActiveDocument.Pocket038.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch040')
+#App.activeDocument().Sketch040.Support = (App.ActiveDocument.Pocket038,["Face55"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch040')
+App.ActiveDocument.Sketch040.addGeometry(Part.Circle(App.Vector(0.000000,0.000000,0),App.Vector(0,0,1),20.007247))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch040.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch040.movePoint(0,0,App.Vector(17.904474,-6.994283,0),0)
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch040.movePoint(0,0,App.Vector(-13.357317,14.888975,0),0)
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch040.addConstraint(Sketcher.Constraint('Radius',0,20.002487)) 
+App.ActiveDocument.Sketch040.setDatum(1,App.Units.Quantity('20.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket039")
+App.activeDocument().Pocket039.Sketch = App.activeDocument().Sketch040
+App.activeDocument().Pocket039.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch040")
+#Gui.activeDocument().hide("Pocket038")
+#Gui.activeDocument().setEdit('Pocket039')
+#Gui.ActiveDocument.Pocket039.ShapeColor=Gui.ActiveDocument.Pocket038.ShapeColor
+#Gui.ActiveDocument.Pocket039.LineColor=Gui.ActiveDocument.Pocket038.LineColor
+#Gui.ActiveDocument.Pocket039.PointColor=Gui.ActiveDocument.Pocket038.PointColor
+App.ActiveDocument.Pocket039.Length = 5.000000
+App.ActiveDocument.Pocket039.Type = 0
+App.ActiveDocument.Pocket039.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch041')
+#App.activeDocument().Sketch041.Support = (App.ActiveDocument.Pocket039,["Face65"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch041')
+App.ActiveDocument.Sketch041.addGeometry(Part.Circle(App.Vector(0.000000,0.000000,0),App.Vector(0,0,1),14.701634))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch041.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch041.addConstraint(Sketcher.Constraint('Radius',0,14.701634)) 
+App.ActiveDocument.Sketch041.setDatum(1,App.Units.Quantity('15.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket040")
+App.activeDocument().Pocket040.Sketch = App.activeDocument().Sketch041
+App.activeDocument().Pocket040.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch041")
+#Gui.activeDocument().hide("Pocket039")
+#Gui.activeDocument().setEdit('Pocket040')
+#Gui.ActiveDocument.Pocket040.ShapeColor=Gui.ActiveDocument.Pocket039.ShapeColor
+#Gui.ActiveDocument.Pocket040.LineColor=Gui.ActiveDocument.Pocket039.LineColor
+#Gui.ActiveDocument.Pocket040.PointColor=Gui.ActiveDocument.Pocket039.PointColor
+App.ActiveDocument.Pocket040.Length = 5.000000
+App.ActiveDocument.Pocket040.Type = 0
+App.ActiveDocument.Pocket040.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch042')
+#App.activeDocument().Sketch042.Support = (App.ActiveDocument.Pocket040,["Face75"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch042')
+App.ActiveDocument.Sketch042.addGeometry(Part.Circle(App.Vector(-0.000004,-0.173528,0),App.Vector(0,0,1),9.853119))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch042.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch042.addConstraint(Sketcher.Constraint('Radius',0,9.853119)) 
+App.ActiveDocument.Sketch042.setDatum(1,App.Units.Quantity('10.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket041")
+App.activeDocument().Pocket041.Sketch = App.activeDocument().Sketch042
+App.activeDocument().Pocket041.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch042")
+#Gui.activeDocument().hide("Pocket040")
+#Gui.activeDocument().setEdit('Pocket041')
+#Gui.ActiveDocument.Pocket041.ShapeColor=Gui.ActiveDocument.Pocket040.ShapeColor
+#Gui.ActiveDocument.Pocket041.LineColor=Gui.ActiveDocument.Pocket040.LineColor
+#Gui.ActiveDocument.Pocket041.PointColor=Gui.ActiveDocument.Pocket040.PointColor
+App.ActiveDocument.Pocket041.Length = 4.000000
+App.ActiveDocument.Pocket041.Type = 0
+App.ActiveDocument.Pocket041.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch043')
+#App.activeDocument().Sketch043.Support = (App.ActiveDocument.Pocket041,["Face85"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch043')
+App.ActiveDocument.Sketch043.addGeometry(Part.Circle(App.Vector(-0.000004,-0.173528,0),App.Vector(0,0,1),5.459269))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch043.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch043.addConstraint(Sketcher.Constraint('Radius',0,5.459269)) 
+App.ActiveDocument.Sketch043.setDatum(1,App.Units.Quantity('4.500000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket042")
+App.activeDocument().Pocket042.Sketch = App.activeDocument().Sketch043
+App.activeDocument().Pocket042.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch043")
+#Gui.activeDocument().hide("Pocket041")
+#Gui.activeDocument().setEdit('Pocket042')
+#Gui.ActiveDocument.Pocket042.ShapeColor=Gui.ActiveDocument.Pocket041.ShapeColor
+#Gui.ActiveDocument.Pocket042.LineColor=Gui.ActiveDocument.Pocket041.LineColor
+#Gui.ActiveDocument.Pocket042.PointColor=Gui.ActiveDocument.Pocket041.PointColor
+App.ActiveDocument.Pocket042.Length = 5.000000
+App.ActiveDocument.Pocket042.Type = 1
+App.ActiveDocument.Pocket042.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+#Gui.activeDocument().activeView().viewLeft()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch044')
+#App.activeDocument().Sketch044.Support = (App.ActiveDocument.Pocket042,["Face2"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch044')
+App.ActiveDocument.Sketch044.addGeometry(Part.Circle(App.Vector(1.136807,-0.173528,0),App.Vector(0,0,1),43.778494))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch044.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch044.addConstraint(Sketcher.Constraint('Radius',0,43.778494)) 
+App.ActiveDocument.Sketch044.setDatum(1,App.Units.Quantity('45.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket043")
+App.activeDocument().Pocket043.Sketch = App.activeDocument().Sketch044
+App.activeDocument().Pocket043.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch044")
+#Gui.activeDocument().hide("Pocket042")
+#Gui.activeDocument().setEdit('Pocket043')
+#Gui.ActiveDocument.Pocket043.ShapeColor=Gui.ActiveDocument.Pocket042.ShapeColor
+#Gui.ActiveDocument.Pocket043.LineColor=Gui.ActiveDocument.Pocket042.LineColor
+#Gui.ActiveDocument.Pocket043.PointColor=Gui.ActiveDocument.Pocket042.PointColor
+App.ActiveDocument.Pocket043.Length = 8.000000
+App.ActiveDocument.Pocket043.Type = 0
+App.ActiveDocument.Pocket043.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch045')
+#App.activeDocument().Sketch045.Support = (App.ActiveDocument.Pocket043,["Face14"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch045')
+App.ActiveDocument.Sketch045.addGeometry(Part.Circle(App.Vector(0.000000,0.000000,0),App.Vector(0,0,1),39.819337))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch045.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch045.addConstraint(Sketcher.Constraint('Radius',0,39.819337)) 
+App.ActiveDocument.Sketch045.setDatum(1,App.Units.Quantity('40.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket044")
+App.activeDocument().Pocket044.Sketch = App.activeDocument().Sketch045
+App.activeDocument().Pocket044.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch045")
+#Gui.activeDocument().hide("Pocket043")
+#Gui.activeDocument().setEdit('Pocket044')
+#Gui.ActiveDocument.Pocket044.ShapeColor=Gui.ActiveDocument.Pocket043.ShapeColor
+#Gui.ActiveDocument.Pocket044.LineColor=Gui.ActiveDocument.Pocket043.LineColor
+#Gui.ActiveDocument.Pocket044.PointColor=Gui.ActiveDocument.Pocket043.PointColor
+App.ActiveDocument.Pocket044.Length = 5.000000
+App.ActiveDocument.Pocket044.Type = 0
+App.ActiveDocument.Pocket044.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch046')
+#App.activeDocument().Sketch046.Support = (App.ActiveDocument.Pocket044,["Face26"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch046')
+App.ActiveDocument.Sketch046.addGeometry(Part.Circle(App.Vector(0.000000,0.000000,0),App.Vector(0,0,1),33.866016))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch046.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch046.addConstraint(Sketcher.Constraint('Radius',0,33.866016)) 
+App.ActiveDocument.Sketch046.setDatum(1,App.Units.Quantity('35.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket045")
+App.activeDocument().Pocket045.Sketch = App.activeDocument().Sketch046
+App.activeDocument().Pocket045.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch046")
+#Gui.activeDocument().hide("Pocket044")
+#Gui.activeDocument().setEdit('Pocket045')
+#Gui.ActiveDocument.Pocket045.ShapeColor=Gui.ActiveDocument.Pocket044.ShapeColor
+#Gui.ActiveDocument.Pocket045.LineColor=Gui.ActiveDocument.Pocket044.LineColor
+#Gui.ActiveDocument.Pocket045.PointColor=Gui.ActiveDocument.Pocket044.PointColor
+App.ActiveDocument.Pocket045.Length = 5.000000
+App.ActiveDocument.Pocket045.Type = 0
+App.ActiveDocument.Pocket045.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch047')
+#App.activeDocument().Sketch047.Support = (App.ActiveDocument.Pocket045,["Face38"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch047')
+App.ActiveDocument.Sketch047.addGeometry(Part.Circle(App.Vector(0.000000,0.000000,0),App.Vector(0,0,1),29.965544))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch047.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch047.addConstraint(Sketcher.Constraint('Radius',0,29.965544)) 
+App.ActiveDocument.Sketch047.setDatum(1,App.Units.Quantity('30.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket046")
+App.activeDocument().Pocket046.Sketch = App.activeDocument().Sketch047
+App.activeDocument().Pocket046.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch047")
+#Gui.activeDocument().hide("Pocket045")
+#Gui.activeDocument().setEdit('Pocket046')
+#Gui.ActiveDocument.Pocket046.ShapeColor=Gui.ActiveDocument.Pocket045.ShapeColor
+#Gui.ActiveDocument.Pocket046.LineColor=Gui.ActiveDocument.Pocket045.LineColor
+#Gui.ActiveDocument.Pocket046.PointColor=Gui.ActiveDocument.Pocket045.PointColor
+App.ActiveDocument.Pocket046.Length = 5.000000
+App.ActiveDocument.Pocket046.Type = 0
+App.ActiveDocument.Pocket046.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch048')
+#App.activeDocument().Sketch048.Support = (App.ActiveDocument.Pocket046,["Face50"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch048')
+App.ActiveDocument.Sketch048.addGeometry(Part.Circle(App.Vector(0.000000,0.000000,0),App.Vector(0,0,1),24.174145))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch048.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch048.addConstraint(Sketcher.Constraint('Radius',0,24.174145)) 
+App.ActiveDocument.Sketch048.setDatum(1,App.Units.Quantity('25.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket047")
+App.activeDocument().Pocket047.Sketch = App.activeDocument().Sketch048
+App.activeDocument().Pocket047.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch048")
+#Gui.activeDocument().hide("Pocket046")
+#Gui.activeDocument().setEdit('Pocket047')
+#Gui.ActiveDocument.Pocket047.ShapeColor=Gui.ActiveDocument.Pocket046.ShapeColor
+#Gui.ActiveDocument.Pocket047.LineColor=Gui.ActiveDocument.Pocket046.LineColor
+#Gui.ActiveDocument.Pocket047.PointColor=Gui.ActiveDocument.Pocket046.PointColor
+App.ActiveDocument.Pocket047.Length = 5.000000
+App.ActiveDocument.Pocket047.Type = 0
+App.ActiveDocument.Pocket047.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch049')
+#App.activeDocument().Sketch049.Support = (App.ActiveDocument.Pocket047,["Face62"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch049')
+App.ActiveDocument.Sketch049.addGeometry(Part.Circle(App.Vector(0.568397,-0.173528,0),App.Vector(0,0,1),19.245895))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch049.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch049.addConstraint(Sketcher.Constraint('Radius',0,19.245895)) 
+App.ActiveDocument.Sketch049.setDatum(1,App.Units.Quantity('20.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket048")
+App.activeDocument().Pocket048.Sketch = App.activeDocument().Sketch049
+App.activeDocument().Pocket048.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch049")
+#Gui.activeDocument().hide("Pocket047")
+#Gui.activeDocument().setEdit('Pocket048')
+#Gui.ActiveDocument.Pocket048.ShapeColor=Gui.ActiveDocument.Pocket047.ShapeColor
+#Gui.ActiveDocument.Pocket048.LineColor=Gui.ActiveDocument.Pocket047.LineColor
+#Gui.ActiveDocument.Pocket048.PointColor=Gui.ActiveDocument.Pocket047.PointColor
+App.ActiveDocument.Pocket048.Length = 5.000000
+App.ActiveDocument.Pocket048.Type = 0
+App.ActiveDocument.Pocket048.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch050')
+#App.activeDocument().Sketch050.Support = (App.ActiveDocument.Pocket048,["Face74"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch050')
+App.ActiveDocument.Sketch050.addGeometry(Part.Circle(App.Vector(0.000000,0.000000,0),App.Vector(0,0,1),13.941528))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch050.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch050.addConstraint(Sketcher.Constraint('Radius',0,13.941528)) 
+App.ActiveDocument.Sketch050.setDatum(1,App.Units.Quantity('15.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket049")
+App.activeDocument().Pocket049.Sketch = App.activeDocument().Sketch050
+App.activeDocument().Pocket049.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch050")
+#Gui.activeDocument().hide("Pocket048")
+#Gui.activeDocument().setEdit('Pocket049')
+#Gui.ActiveDocument.Pocket049.ShapeColor=Gui.ActiveDocument.Pocket048.ShapeColor
+#Gui.ActiveDocument.Pocket049.LineColor=Gui.ActiveDocument.Pocket048.LineColor
+#Gui.ActiveDocument.Pocket049.PointColor=Gui.ActiveDocument.Pocket048.PointColor
+App.ActiveDocument.Pocket049.Length = 5.000000
+App.ActiveDocument.Pocket049.Type = 0
+App.ActiveDocument.Pocket049.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.activeDocument().addObject('Sketcher::SketchObject','Sketch051')
+#App.activeDocument().Sketch051.Support = (App.ActiveDocument.Pocket049,["Face86"])
+#App.activeDocument().recompute()
+#Gui.activeDocument().setEdit('Sketch051')
+App.ActiveDocument.Sketch051.addGeometry(Part.Circle(App.Vector(0.000000,0.000000,0),App.Vector(0,0,1),8.520843))
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch051.addConstraint(Sketcher.Constraint('Coincident',0,3,-1,1)) 
+App.ActiveDocument.recompute()
+App.ActiveDocument.Sketch051.addConstraint(Sketcher.Constraint('Radius',0,8.520843)) 
+App.ActiveDocument.Sketch051.setDatum(1,App.Units.Quantity('10.000000 mm'))
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+App.ActiveDocument.recompute()
+App.activeDocument().addObject("PartDesign::Pocket","Pocket050")
+App.activeDocument().Pocket050.Sketch = App.activeDocument().Sketch051
+App.activeDocument().Pocket050.Length = 5.0
+App.ActiveDocument.recompute()
+#Gui.activeDocument().hide("Sketch051")
+#Gui.activeDocument().hide("Pocket049")
+#Gui.activeDocument().setEdit('Pocket050')
+#Gui.ActiveDocument.Pocket050.ShapeColor=Gui.ActiveDocument.Pocket049.ShapeColor
+#Gui.ActiveDocument.Pocket050.LineColor=Gui.ActiveDocument.Pocket049.LineColor
+#Gui.ActiveDocument.Pocket050.PointColor=Gui.ActiveDocument.Pocket049.PointColor
+App.ActiveDocument.Pocket050.Length = 4.000000
+App.ActiveDocument.Pocket050.Type = 0
+App.ActiveDocument.Pocket050.UpToFace = None
+App.ActiveDocument.recompute()
+#Gui.activeDocument().resetEdit()
+#Gui.activeDocument().activeView().viewAxometric()
+# Macro End: /home/bill/.FreeCAD/macros/TurnersCube.FCMacro +++++++++++++++++++++++++++++++++++++++++++++++++
